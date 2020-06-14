@@ -1,0 +1,26 @@
+#playground{
+    grid-area: 7 / 2 / 1 / 7;
+    display: none;
+    grid-template-columns: repeat(4,calc(98vw / 20 * 3));
+    grid-template-rows: repeat(3, calc(98vw / 20 * 3));
+    place-self: center;
+    border-radius: 5em;
+    margin: 3em 0;
+}
+.karticka{
+    background-color: #41BBD9;
+    border-radius: 2em;
+    border: 1em solid white;
+    position: relative;
+    width: auto;
+    overflow: hidden;
+}
+.tajnyObr{
+    object-fit: cover;
+    position: relative;
+    margin: auto;
+    max-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
