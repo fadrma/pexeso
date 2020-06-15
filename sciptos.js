@@ -98,7 +98,7 @@ function startTime(){
         }, 1000);
 }
 
-document.getElementById("playground").addEventListener("click", event => {console.log(event.target);
+document.getElementById("playground").addEventListener("click", event => {
 if(event.target.classList[0] === "tajnyObr" && !otocene.includes(event.target)){
     otocene.push(event.target);
     event.target.style.opacity = "100";
