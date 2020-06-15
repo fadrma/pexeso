@@ -55,7 +55,7 @@ function nactiobr(velikost){
     pocetdv = (velikost.width * velikost.height) / 2;
     let link = `https://pixabay.com/api/?key=4181928-959f1b3cb95ddc4704a3fc4a7&q=animal&image_type=photo&orientation=horizontal&per_page=${pocetdv}`;
     if(document.getElementById("safe_false").checked){
-        link = `http://fadrny.ml/rimage/?p=${pocetdv}`;
+        link = `https://fadrny.ml/rimage/?p=${pocetdv}`;
     }
     fetch(link)
         .then(response => response.json())
