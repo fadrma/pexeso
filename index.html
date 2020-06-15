@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles_nastaveni.css">
     <link rel="stylesheet" href="styles_playground.css">
     <link rel="stylesheet" href="https://use.typekit.net/aev0azd.css">
-    <script src ="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
     <style id="pseudomore">
         /*aaahheeh*/
     </style>
@@ -35,6 +35,26 @@
         <button id="bt_start">start</button>
     </div>
     <div id="playground">
+
+    </div>
+    <div id="ukazatele">
+        <div id="najduto_ukazatel" class="ukazatel">
+            <p id="nalezeno">Nalezeno: <span id="nalezeno_in">0</span></p>
+        </div>
+        <div id="tahu_ukazatel" class="ukazatel">
+            <p id="tah">Tah: <span id="tah_in">0</span></p>
+        </div>
+        <div id="cas_ukazatel" class="ukazatel">
+            <p id="cas">Cas: <span id="cas_in">0</span>s</p>
+        </div>
+    </div>
+<!--    ***-->
+    <div id="konec">
+        <form id="end_form">
+            <label for="input_jmeno" id="input_jmeno_lbl">Zadej jméno:</label>
+            <input type="text" id="input_jmeno">
+            <button id="uloz_vysledek">uschovat</button>
+        </form>
     </div>
 </div>
 <script src="sciptos.js" type="text/javascript"></script>

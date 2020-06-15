@@ -22,5 +22,36 @@
     max-width: 100%;
     min-height: 100%;
     opacity: 0;
-    transition: opacity 0.6s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+#ukazatele{
+    display: none;
+    grid-area: 2/7/6/8;
+    margin: 0.5em;
+    align-content: center;
+    font-size: calc(100vw/50);
+}
+#konec{
+    grid-area: 2 / 2 / 6 / 7;
+    display: none;
+}
+#end_form{
+    place-self: center;
+    display: grid;
+
+}
+#input_jmeno_lbl{
+    font-size: calc(100% * 1.5);
+}
+#input_jmeno{
+    margin: 0 0 0.5em 0;
+    border-style: solid;
+    width: calc(100vw/5);
+    height: calc(100vh/40);
+}
+#uloz_vysledek{
+    place-self: end;
+    border: none;
+    font-size: calc(100% * 1.5);
+    border-radius: 1em;
 }

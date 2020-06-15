@@ -26,6 +26,8 @@ document.getElementById("bt_start").addEventListener("click", function () {
     document.getElementById("nastaveni").style.display = "none";
     document.getElementById("playground").style.display = "grid";
     document.getElementById("pseudomore").innerHTML = `.karticka{background-color: ${barvy[sl.value]};}`;
+    document.getElementById("ukazatele").style.color = barvy[sl.value];
+    document.getElementById("ukazatele").style.display = "grid";
     herniPole();
 })
 function herniPole() {
@@ -44,18 +46,28 @@ function herniPole() {
         obrazek.classList.add("tajnyObr");
         obrazek.id = `tajnyObr_${cnt}`;
         karticka.appendChild(obrazek);
-        nactiobr(velikost);
     }
+    nactiobr(velikost);
 }
 
 function nactiobr(velikost){
     let rtrn = [];
     pocetdv = (velikost.width * velikost.height) / 2;
-    fetch(`https://pixabay.com/api/?key=4181928-959f1b3cb95ddc4704a3fc4a7&q=animal&image_type=photo&orientation=horizontal&per_page=${pocetdv}`)
+    let link = `https://pixabay.com/api/?key=4181928-959f1b3cb95ddc4704a3fc4a7&q=animal&image_type=photo&orientation=horizontal&per_page=${pocetdv}`;
+    if(document.getElementById("safe_false").checked){
+        link = `http://fadrny.ml/rimage/?p=${pocetdv}`;
+    }
+    fetch(link)
         .then(response => response.json())
         .then(data => {
             for(let cnt = 0; cnt < pocetdv; cnt++){
-                let pic = data["hits"][cnt]["webformatURL"];
+                let pic;
+                if(document.getElementById("safe_false").checked){
+                    pic = data[cnt].link;
+                }
+                else{
+                    pic = data["hits"][cnt]["webformatURL"];
+                }
                 rtrn[rtrn.length] = {url: pic, conn: cnt};
                 rtrn[rtrn.length] = {url: pic, conn: cnt};
             }
@@ -75,10 +87,15 @@ let najduto = 0;
 let tahu = 0;
 let cas = 0;
 
+let sekunda;
+
 function startTime(){
-    window.setInterval(function () {
+    sekunda = window.setInterval(function () {
         cas++;
-    }, 1000)
+        document.getElementById("nalezeno_in").innerText = najduto;
+        document.getElementById("cas_in").innerText = cas;
+        document.getElementById("tah_in").innerText = tahu;
+        }, 1000);
 }
 
 document.getElementById("playground").addEventListener("click", event => {console.log(event.target);
@@ -99,7 +116,11 @@ if(event.target.classList[0] === "tajnyObr" && !otocene.includes(event.target)){
         tahu++;
     }
     if(najduto === pocetdv){
-        alert("parada");
+        window.clearInterval(sekunda);
+        document.getElementById("input_jmeno").style.borderColor = barvy[sl.value];
+        document.getElementById("input_jmeno_lbl").style.color = barvy[sl.value];
+        document.getElementById("uloz_vysledek").style.color = barvy[sl.value];
+        document.getElementById("konec").style.display = "grid";
     }
 }
 });
