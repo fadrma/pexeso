@@ -1,3 +1,3 @@
 # pexeso
-final school project for IP
-running on: fadrma.gihub.io/pexeso
+final school project for IP<br>
+running on: <a href="fadrma.gihub.io/pexeso">fadrma.gihub.io/pexeso</a>
